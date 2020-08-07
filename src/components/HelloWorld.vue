@@ -13,6 +13,11 @@
           숫자를 더해보자
         </v-btn>
          <v-btn
+          class="red" 
+         >
+          버튼하나 추가 기능무
+        </v-btn>
+         <v-btn
           @click="minus"
         >
           숫자를 빼보자

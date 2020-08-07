@@ -3,6 +3,8 @@
 import { app, protocol, BrowserWindow } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
+import { autoUpdater } from "electron-updater"
+process.env.GH_TOKEN = "579c4d59d94c1cfc83c7d4f4883b6627df892979"
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -40,6 +42,18 @@ function createWindow() {
     win = null
   })
 }
+autoUpdater.setFeedURL({
+  provider: 'github',
+  token: '579c4d59d94c1cfc83c7d4f4883b6627df892979',
+  owner: 'wlsrms9300',
+  repo: 'Electron-updater'
+})
+autoUpdater.checkForUpdatesAndNotify()
+// autoUpdater.checkForUpdates();
+
+// autoUpdater.addListener('update-downloaded', (info) => {
+// autoUpdater.quitAndInstall();
+// });
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
