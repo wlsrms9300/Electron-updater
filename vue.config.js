@@ -17,7 +17,7 @@ module.exports = {
           provider: "github",
           owner: "wlsrms9300",
           repo: "Electron-updater",
-          token: "579c4d59d94c1cfc83c7d4f4883b6627df892979" 
+          token: "83d25e7e319ea30867817355a3d8524eb0fe5874" 
         }
       }
     }

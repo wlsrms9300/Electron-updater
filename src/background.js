@@ -4,7 +4,7 @@ import { app, protocol, BrowserWindow } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import { autoUpdater } from "electron-updater"
-process.env.GH_TOKEN = "579c4d59d94c1cfc83c7d4f4883b6627df892979"
+// process.env.GH_TOKEN="579c4d59d94c1cfc83c7d4f4883b6627df892979"
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -36,19 +36,25 @@ function createWindow() {
     createProtocol('app')
     // Load the index.html when not in development
     win.loadURL('app://./index.html')
+    // autoUpdater.setFeedURL({
+    //   provider: 'github',
+    //   token: '83d25e7e319ea30867817355a3d8524eb0fe5874',
+    //   owner: 'wlsrms9300',
+    //   repo: 'Electron-updater'
+    // })
+    // autoUpdater.checkForUpdatesAndNotify()
   }
-
-  win.on('closed', () => {
-    win = null
-  })
 }
-autoUpdater.setFeedURL({
-  provider: 'github',
-  token: '579c4d59d94c1cfc83c7d4f4883b6627df892979',
-  owner: 'wlsrms9300',
-  repo: 'Electron-updater'
+
+win.on('closed', () => {
+  win = null
 })
-autoUpdater.checkForUpdatesAndNotify()
+// autoUpdater.checkForUpdates({
+//   provider: 'github',
+//   token: '83d25e7e319ea30867817355a3d8524eb0fe5874',
+//   owner: 'wlsrms9300',
+//   repo: 'Electron-updater'
+// })
 // autoUpdater.checkForUpdates();
 
 // autoUpdater.addListener('update-downloaded', (info) => {
